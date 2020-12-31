@@ -10,8 +10,17 @@ Vue.use(directives);
 Vue.config.productionTip = false;
 
 Vue.use(ElementUI);
+
+import axios from "axios";
+import "@/api";
+import * as mock from "@/mock/index";
+
+Vue.config.productionTip = false;
+Vue.use(ElementUI);
+Vue.prototype.$axios = axios;
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: h => h(App),
+  components: App
 }).$mount("#app");
