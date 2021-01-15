@@ -13,8 +13,6 @@ function createDocumentHandler(el, binding, vnode) {
  */
 export default {
   bind(el, binding, vnode) {
-    console.log("binding", binding);
-    console.log("vnode", vnode);
     el[ctx] = {
       id: seed++,
       methodName: binding.expression,

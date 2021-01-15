@@ -6,38 +6,41 @@
     @close="handleClose"
     text-color="#fff"
     background-color="#333"
+    router
   >
-    <!-- <el-submenu :index="item.path" v-for="item in routes" :key="item.path">
-      <template slot="title" >
+    <el-submenu
+      :index="item.path"
+      v-for="item in configRoutes"
+      :key="item.path"
+    >
+      <template slot="title">
         <i class="el-icon-location"></i>
-        <span>{{ item.name }}</span>
+        <span>{{ item.label }}</span>
       </template>
       <el-menu-item
         :index="cItem.path"
         v-for="cItem in item.children"
         :key="cItem.path"
-        >{{ cItem.name }}{{cItem.path}}</el-menu-item
+        >{{ cItem.label }}</el-menu-item
       >
-    </el-submenu> -->
+    </el-submenu>
   </el-menu>
 </template>
 
 <script>
-import { routes } from "@/router";
+import configRoutes from "@/router/routes";
 export default {
   data() {
     return {
-      routes,
+      configRoutes
     };
   },
-  mounted() {
-  },
+  mounted() {},
   methods: {
     handleOpen() {},
-    handleClose() {},
-  },
+    handleClose() {}
+  }
 };
 </script>
 
-<style>
-</style>
+<style></style>

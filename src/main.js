@@ -6,21 +6,17 @@ import directives from "./directives";
 // import './plagins/element'
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
+
+// 批量注册指令
 Vue.use(directives);
 Vue.config.productionTip = false;
 
 Vue.use(ElementUI);
-
-import axios from "axios";
-import "@/api";
 import * as mock from "@/mock/index";
 
 Vue.config.productionTip = false;
-Vue.use(ElementUI);
-Vue.prototype.$axios = axios;
 new Vue({
   router,
   store,
-  render: h => h(App),
-  components: App
+  render: h => h(App)
 }).$mount("#app");

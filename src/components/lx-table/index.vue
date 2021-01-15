@@ -7,24 +7,26 @@
     >
       <template v-for="(column, index) in columns">
         <el-table-column
-          v-if="!column.name&&!column.slot"
+          v-if="!column.name && !column.slot"
           :key="index"
           v-bind="column.attrs || {}"
           :align="column.attrs.align || align"
         ></el-table-column>
         <el-table-column
-          v-else-if="!column.name&&column.slot"
+          v-else-if="!column.name && column.slot"
           :key="index"
           v-bind="column.attrs || {}"
           :align="column.attrs.align || align"
         >
           <template v-slot="slot">
+            {{ slot.row }}
+            {{ column.slot }}
             <slot :name="column.slot" :slot="slot"></slot>
           </template>
         </el-table-column>
         <!-- 动态列使用 -->
         <template v-else>
-          <slot :name="column.name" ></slot>
+          <slot :name="column.name"></slot>
         </template>
       </template>
     </el-table>
@@ -44,18 +46,20 @@
 
 <script>
 export default {
-  name: 'lx-table',
+  name: "lx-table",
   props: {
     columns: Array,
-    align: { // 可通过该配置为所有column设置align,column的align优先级高于table的align
+    align: {
+      // 可通过该配置为所有column设置align,column的align优先级高于table的align
       type: String,
-      default: 'left'
-    }, 
+      default: "left"
+    },
     layout: {
       type: String,
-      default: 'total, sizes, prev, pager, next, jumper'
+      default: "total, sizes, prev, pager, next, jumper"
     },
-    pagination: { // 是否开启分页
+    pagination: {
+      // 是否开启分页
       type: Boolean,
       default: true
     }
