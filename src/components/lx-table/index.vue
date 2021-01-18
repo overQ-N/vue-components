@@ -13,13 +13,12 @@
           :align="column.attrs.align || align"
         ></el-table-column>
         <el-table-column
-          v-else-if="!column.name && column.slot"
+          v-else-if="column.slot"
           :key="index"
           v-bind="column.attrs || {}"
           :align="column.attrs.align || align"
         >
           <template v-slot="slot">
-            {{ slot.row }}
             {{ column.slot }}
             <slot :name="column.slot" :slot="slot"></slot>
           </template>

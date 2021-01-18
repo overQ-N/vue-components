@@ -16,6 +16,13 @@ export default {
       name: "示例页",
       label: "表格",
       meta: { title: "index" }
+    },
+    {
+      path: "/example/table/virtual-table",
+      component: () => import("@/views/example/table/virtual-table"),
+      name: "示例页",
+      label: "虚拟表格",
+      meta: { title: "index" }
     }
   ]
 };
